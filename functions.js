@@ -1,6 +1,8 @@
 	//Function for determining star ratings
 	function starRating(){
-		var ran = (Math.floor(Math.random() * 100) + 1)
+		var bribe = (Math.round(document.getElementById("gMBribe").value))
+		var roll = (Math.floor(Math.random() * 100) + 1)
+		var ran = roll + bribe
 		var sR = 0
 		if (ran > 0 && ran < 6){
 			sR = 0
@@ -8,23 +10,19 @@
 		else if (ran > 5 && ran < 41){
 			sR = 1
 		}
-		else if (ran > 40 && ran < 66){
+		else if (ran > 40 && ran < 66) {
 			sR = 2
-		}
 		}
 		else if (ran > 65 && ran < 86){
 			sR = 3
 		}
-		}
 		else if (ran > 85 && ran < 96){
 			sR = 4
-		}
 		}
 		else if (ran > 95 && ran < 100){
 			sR = 5
 		}
-		}
-		else {
+		else{
 			sR = 6
 		}
 		return sR
@@ -49,7 +47,11 @@
 		}
 		array.sort();
 		array.shift();
-		return array
+		let sum = 0;
+		for (var i = 0; i < array.length; i++) {
+			sum += array[i]
+		}
+		return sum
 	}
 	//2 Star ability roll
 	function roll5d6b3(){
@@ -60,50 +62,79 @@
 		array.sort();
 		array.shift();
 		array.shift();
-		return array
+		let sum = 0;
+		for (var i = 0; i < array.length; i++) {
+			sum += array[i]
+		}
+		return sum
+	}
+	//3 Star ability roll
+	function roll6d6b3() {
+		let array = []
+		for (var i = 0; i < 6; i++) {
+			array.push(Math.floor(Math.random() * 6) + 1)
+		}
+		array.sort();
+		array.shift();
+		array.shift();
+		array.shift();
+		let sum = 0;
+		for (var i = 0; i < array.length; i++) {
+			sum += array[i]
+		}
+		return sum
 	}
 	//4 Star ability roll
-	function roll6d6b3(){
+	function roll4d6b2(){
 		let array = []
-		for (var i = 0; i < 6; i++){
+		for (var i = 0; i < 4; i++){
 			array.push(Math.floor(Math.random() * 6) + 1)
 		}
 		array.sort();
 		array.shift();
 		array.shift();
-		array.shift();
-		return array
-	}
+		array.push(6);
+		let sum = 0;
+		for (var i = 0; i < array.length; i++) {
+			sum += array[i]
+		}
+		return sum
 	}
 	//5 Star ability roll
-	function roll6d6b3a1(){
+	function roll5d6b2a1(){
 		let array = []
-		for (var i = 0; i < 6; i++){
+		for (var i = 0; i < 5; i++){
 			array.push(Math.floor(Math.random() * 6) + 1)
 		}
 		array.sort();
 		array.shift();
 		array.shift();
 		array.shift();
-		for (let i = 0; i < array.length; i++) {
-  			array[i] += 1;
+		array.push(6);
+		let sum = 0;
+		for (var i = 0; i < array.length; i++) {
+			sum += array[i]
 		}
-		return array
+		return sum +2
 	}
 	//6 Star ability roll
-	function roll6d6b3a2(){
+	function roll5d6b1a2(){
 		let array = []
-		for (var i = 0; i < 6; i++){
+		for (var i = 0; i < 5; i++){
 			array.push(Math.floor(Math.random() * 6) + 1)
 		}
 		array.sort();
 		array.shift();
 		array.shift();
 		array.shift();
-		for (let i = 0; i < array.length; i++) {
-  			array[i] += 2;
+		array.shift();
+		array.push(6);
+		array.push(6);
+		let sum = 0;
+		for (var i = 0; i < array.length; i++) {
+			sum += array[i];
 		}
-		return array
+		return sum + 2
 	}
 	function calculateModifier(number){
 		return Math.floor((number - 10)/2)

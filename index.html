@@ -4,49 +4,51 @@
 </head>
 <body onload="showOnlyNPCClassesOptions()">
 
-<input type="checkbox" id="basicfiltering" name="basicfiltering" checked><label for="basicfiltering" >Basic Filtering</label>
-<br>
-<input type="checkbox" id="maxlevel1skillranks" name="maxlevel1skillranks" checked><label for="maxlevel1skillranks">Max Level 1 Skill Ranks</label>
-<br>
-<input type="checkbox" id="allowaquaticanimals" name="allowaquaticanimals"><label for="allowaquaticanimals">Allow Aquatic Animals as Animal Companions</label>
-<br>
-<input type="checkbox" id="weighraceselection" name="weighraceselection"><label for="weighraceselection">Weigh Race Selection</label>
-<br>
-<input type="checkbox" id="weighattributes" name="weighattributes" checked><label for="weighattributes">Weigh Attributes</label>
-<br>
-<input type="checkbox" id="weighindividualskills" name="weighindividualskills"><label for="weighindividualskills">Weigh Individual Skills</label>
-<br>
-<input type="checkbox" id="weighfeats" name="weighfeats" checked><label for="weighfeats">Weigh Feats</label>
-<br>
-<input type="checkbox" id="specialistWizardSafety" name="specialistWizardSafety" checked><label for="specialistWizardSafety">Ensure Specialist Wizards have at least one spell of their college per spell level</label>
-<br>
-<input type="checkbox" id="allowNPCClasses" name="allowNPCClasses" onchange="showOnlyNPCClassesOptions()"><label for="allNPCClasses">Allow NPC Classes</label>
-<span id="whereOnlyNPCClassOptionAppears" ></span>
-<br>
-<input type="number" id="godlessCleric" name ="godlessCleric" value="10" min="0" max="100" size="4" style="width: 36px"><label for="godlessCleric">% of Godless Clerics</label>
-<br>
-<input type="number" id="LiterateBarbarians" name ="LiterateBarbarians" value="10" min="0" max="100" size="4" style="width: 36px"><label for="LiterateBarbarians">% of Literate Barbarian</label>
-<br>
-<input type="number" id="specialistWizards" name="specialistWizards" value="50" min="0" max="100" size="4" style="width: 36px"><label for="specialistWizards">% of Specialist Wizards</label>
-<br>
-<input type="number" id="classSkillWeight" name="classSkillWeight" value="4" min="0" size="3" style="width: 25px"><label for="classSkillWeight">Class Skill Weight</label>
-<br>
-<input type="number" id="crossClassSkillWeight" name="crossClassSkillWeight" value="1" min="0" size="3" style="width: 25px"><label for="crossClassSkillWeight">Cross-Class Skill Weight</label>
-<br>
-<input type="number" id="characterLevel" name="characterLevel" value="1" min="1" max="5" size="3" style="width: 25px"><label for="characterLevel">Character Level</label>
-<br>
-<button onclick="generateCharacter()">Generate Character</button>
-<span id = "CharacterInfo"></span>
-<script type="text/javascript" src="./classData.js"></script>
-<script type="text/javascript" src="./createCharacter.js"></script>
-<script type="text/javascript" src="./domainData.js"></script>
-<script type="text/javascript" src="./featData.js"></script>
-<script type="text/javascript" src="./functions.js"></script>
-<script type="text/javascript" src="./godData.js"></script>
-<script type="text/javascript" src="./languageData.js"></script>
-<script type="text/javascript" src="./raceData.js"></script>
-<script type="text/javascript" src="./skillData.js"></script>
-<script type="text/javascript" src="./spellData.js"></script>
-<script type="text/javascript" src="./weaponData.js"></script>
+    <input type="checkbox" id="basicfiltering" name="basicfiltering" checked><label for="basicfiltering">Basic Filtering</label>
+    <br>
+    <input type="checkbox" id="maxlevel1skillranks" name="maxlevel1skillranks" checked><label for="maxlevel1skillranks">Max Level 1 Skill Ranks</label>
+    <br>
+    <input type="checkbox" id="allowaquaticanimals" name="allowaquaticanimals"><label for="allowaquaticanimals">Allow Aquatic Animals as Animal Companions</label>
+    <br>
+    <input type="checkbox" id="weighraceselection" name="weighraceselection"><label for="weighraceselection">Weigh Race Selection</label>
+    <br>
+    <input type="checkbox" id="weighattributes" name="weighattributes" checked><label for="weighattributes">Weigh Attributes</label>
+    <br>
+    <input type="checkbox" id="weighindividualskills" name="weighindividualskills"><label for="weighindividualskills">Weigh Individual Skills</label>
+    <br>
+    <input type="checkbox" id="weighfeats" name="weighfeats" checked><label for="weighfeats">Weigh Feats</label>
+    <br>
+    <input type="checkbox" id="specialistWizardSafety" name="specialistWizardSafety" checked><label for="specialistWizardSafety">Ensure Specialist Wizards have at least one spell of their college per spell level</label>
+    <br>
+    <input type="checkbox" id="allowNPCClasses" name="allowNPCClasses" onchange="showOnlyNPCClassesOptions()"><label for="allNPCClasses">Allow NPC Classes</label>
+    <span id="whereOnlyNPCClassOptionAppears"></span>
+    <br>
+    <input type="number" id="godlessCleric" name="godlessCleric" value="10" min="0" max="100" size="3" ><label for="godlessCleric">% of Godless Clerics</label>
+    <br>
+    <input type="number" id="LiterateBarbarians" name="LiterateBarbarians" value="10" min="0" max="100" size="3" ><label for="LiterateBarbarians">% of Literate Barbarian</label>
+    <br>
+    <input type="number" id="specialistWizards" name="specialistWizards" value="50" min="0" max="100" size="3" ><label for="specialistWizards">% of Specialist Wizards</label>
+    <br>
+    <input type="number" id="classSkillWeight" name="classSkillWeight" value="4" min="0" size="3" ><label for="classSkillWeight">Class Skill Weight</label>
+    <br>
+    <input type="number" id="crossClassSkillWeight" name="crossClassSkillWeight" value="1" min="0" size="3" ><label for="crossClassSkillWeight">Cross-Class Skill Weight</label>
+    <br>
+    <input type="number" id="characterLevel" name="characterLevel" value="1" min="1" max="5" size="3" ><label for="characterLevel">Character Level</label>
+    <br>
+    <input type="number" id="gMBribe" name="gMBribe" value="0" min="0" max="100" size="3" ><label for="gMBribe">GM Bribe</label>
+    <br>
+    <button onclick="generateCharacter()">Generate Character</button>
+    <span id="CharacterInfo"></span>
+    <script type="text/javascript" src="./classData.js"></script>
+    <script type="text/javascript" src="./createCharacter.js"></script>
+    <script type="text/javascript" src="./domainData.js"></script>
+    <script type="text/javascript" src="./featData.js"></script>
+    <script type="text/javascript" src="./functions.js"></script>
+    <script type="text/javascript" src="./godData.js"></script>
+    <script type="text/javascript" src="./languageData.js"></script>
+    <script type="text/javascript" src="./raceData.js"></script>
+    <script type="text/javascript" src="./skillData.js"></script>
+    <script type="text/javascript" src="./spellData.js"></script>
+    <script type="text/javascript" src="./weaponData.js"></script>
 </body>
-</html>
+    </html>

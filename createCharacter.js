@@ -1,11 +1,27 @@
 	function generateCharacter(){
 		//Generate Star Rating
-		//var abilityStar = starRating()
-		//var raceStar = starRating()
-		//var classStar = starRating()
+		var bribe = document.getElementById("gMBribe").value
+		var abilityStar = starRating()
+		var raceStar = starRating()
+		var classStar = starRating()
+		var equipmentStar = starRating()
+		var totalStar = (abilityStar + raceStar + classStar + equipmentStar) / 4;
+		/*var abilityStar = 6;*/
 		//Roll Abillity Scores
-		var abilityStar = 1;
-		if (abilityStar === 0){
+		//if (abilityStar === 0 || abilityStar === 1 || abilityStar === 2 || abilityStar === 3 || abilityStar === 4 || abilityStar === 5 || abilityStar === 6) {
+		//while (true) {
+		//	var array = []
+		//	var modifierSum = 0;
+		//	for (var i = 0; i < 6; i++) {
+		//		array.push(roll5d6b1a2())
+		//		modifierSum += calculateModifier(array[i])
+		//	}
+		//	if (modifierSum > 0 && Math.max(...array) > 13) {
+		//		break;
+		//	}
+		//	}
+		//}
+		if (abilityStar == 0){
 			while (true){
 				var array = []
 				var modifierSum = 0;
@@ -18,7 +34,7 @@
 				}
 			}
 		}
-		else if (abilityStar === 2){
+		else if (abilityStar === 1){
 			while (true){
 				var array = []
 				var modifierSum = 0;
@@ -31,7 +47,7 @@
 				}
 			}
 		}
-		else if (abilityStar === 3){
+		else if (abilityStar === 2){
 			while (true){
 				var array = []
 				var modifierSum = 0;
@@ -44,12 +60,26 @@
 				}
 			}
 		}
-		else if (abilityStar === 4){
+		else if (abilityStar === 3){
 			while (true){
 				var array = []
 				var modifierSum = 0;
 				for (var i = 0; i < 6; i++){
 					array.push(roll6d6b3())
+					//array.push(roll5d6b1a2())
+					modifierSum += calculateModifier(array[i])
+				}
+				if (modifierSum > 0 && Math.max(...array) > 13){
+					break;
+				}
+			}
+		}
+		else if (abilityStar === 4){
+			while (true){
+				var array = []
+				var modifierSum = 0;
+				for (var i = 0; i < 6; i++){
+					array.push(roll4d6b2())
 					modifierSum += calculateModifier(array[i])
 				}
 				if (modifierSum > 0 && Math.max(...array) > 13){
@@ -62,7 +92,7 @@
 				var array = []
 				var modifierSum = 0;
 				for (var i = 0; i < 6; i++){
-					array.push(roll6d6b3a1())
+					array.push(roll5d6b2a1())
 					modifierSum += calculateModifier(array[i])
 				}
 				if (modifierSum > 0 && Math.max(...array) > 13){
@@ -70,12 +100,12 @@
 				}
 			}
 		}
-		else (abilityStar === 6){
+		else {
 			while (true){
 				var array = []
 				var modifierSum = 0;
 				for (var i = 0; i < 6; i++){
-					array.push(roll6d6b3a2())
+					array.push(roll5d6b1a2())
 					modifierSum += calculateModifier(array[i])
 				}
 				if (modifierSum > 0 && Math.max(...array) > 13){
@@ -747,6 +777,38 @@
 		table.style.borderCollapse = "collapse"
 		table.style.tableLayout = "fixed"
 		table.style.width = "702px"
+		let testRow = document.createElement("TR")
+		let testCell = document.createElement("TD")
+		testCell.colSpan = "6"
+		testCell.style.width = "600 px"
+		testCell.appendChild(document.createTextNode("Total Star Rating: " + totalStar + "   Abilities: " + abilityStar + "   Race: " + raceStar + "   Class: " + classStar + "   Equipment: " + equipmentStar))
+		testRow.appendChild(testCell)
+		testRow.style.border = "2px solid black"
+		testRow.style.borderCollapse = "collapse"
+		testCell.style.border = "2px solid black"
+		testCell.style.borderCollapse = "collapse"
+		table.appendChild(testRow)
+		//let starRow = document.createElement("TR")
+		//starRow.style.border = "2px solid black"
+		//starRow.style.borderCollapse = "collapse"
+		//let abilitesCell = document.createElement("TD")
+		//abilitesCell.appendChild(document.createTextNode("Abilities: " + "Placeholder"))
+		//abilitesCell.style.border = "2px solid black"
+		//abilitesCell.style.borderCollapse = "collapse"
+		//abilitesCell.colSpan = "2"
+		//starRow.appendChild(abilitesCell)
+		//let raceCell = document.createElement("TD")
+		//raceCell.appendChild(document.createTextNode("Race: " + "Placeholder"))
+		//raceCell.style.border = "2px solid black"
+		//raceCell.style.borderCollapse = "collapse"
+		//raceCell.colSpan = "2"
+		//starRow.appendChild(raceCell)
+		//let classCell = document.createElement("TD")
+		//classCell.appendChild(document.createTextNode("Race: " + "Placeholder"))
+		//classCell.style.border = "2px solid black"
+		//classCell.style.borderCollapse = "collapse"
+		//classCell.colSpan = "2"
+		//starRow.appendChild(classCell)
 		let coreInfoRow = document.createElement("TR")
 		let classAndLevelCell = document.createElement("TD")
 		coreInfoRow.style.border = "2px solid black"
