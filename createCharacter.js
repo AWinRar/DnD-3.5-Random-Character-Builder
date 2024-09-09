@@ -4,7 +4,7 @@
 		//var raceStar = starRating()
 		//var classStar = starRating()
 		//Roll Abillity Scores
-		var abilityStar = 1
+		var abilityStar = 1;
 		if (abilityStar === 0){
 			while (true){
 				var array = []
