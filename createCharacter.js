@@ -1,9 +1,10 @@
 	function generateCharacter(){
 		//Generate Star Rating
-		var abilityStar = starRating()
-		var raceStar = starRating()
-		var classStar = starRating()
+		//var abilityStar = starRating()
+		//var raceStar = starRating()
+		//var classStar = starRating()
 		//Roll Abillity Scores
+		var abilityStar = 1
 		if (abilityStar === 0){
 			while (true){
 				var array = []
