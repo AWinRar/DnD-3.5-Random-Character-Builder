@@ -4,6 +4,6 @@ Task 1: Add Content
 
 Task 2: Add Tier System
 
-Task 3: Add Build Weighting System
+Task 3: Edit Build Weighting System 
 
 Task 4: Add Flavor Details
