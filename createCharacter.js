@@ -1,14 +1,85 @@
 	function generateCharacter(){
+		//Generate Star Rating
+		var abilityStar = starRating()
+		var raceStar = starRating()
+		var classStar = starRating()
 		//Roll Abillity Scores
-		while (true){
-			var array = []
-			var modifierSum = 0;
-			for (var i = 0; i < 6; i++){
-				array.push(roll4d6b3())
-				modifierSum += calculateModifier(array[i])
+		if (abilityStar === 0){
+			while (true){
+				var array = []
+				var modifierSum = 0;
+				for (var i = 0; i < 6; i++){
+					array.push(roll3d6())
+					modifierSum += calculateModifier(array[i])
+				}
+				if (modifierSum > 0 && Math.max(...array) > 13){
+					break;
+				}
 			}
-			if (modifierSum > 0 && Math.max(...array) > 13){
-				break;
+		}
+		else if (abilityStar === 2){
+			while (true){
+				var array = []
+				var modifierSum = 0;
+				for (var i = 0; i < 6; i++){
+					array.push(roll4d6b3())
+					modifierSum += calculateModifier(array[i])
+				}
+				if (modifierSum > 0 && Math.max(...array) > 13){
+					break;
+				}
+			}
+		}
+		else if (abilityStar === 3){
+			while (true){
+				var array = []
+				var modifierSum = 0;
+				for (var i = 0; i < 6; i++){
+					array.push(roll5d6b3())
+					modifierSum += calculateModifier(array[i])
+				}
+				if (modifierSum > 0 && Math.max(...array) > 13){
+					break;
+				}
+			}
+		}
+		else if (abilityStar === 4){
+			while (true){
+				var array = []
+				var modifierSum = 0;
+				for (var i = 0; i < 6; i++){
+					array.push(roll6d6b3())
+					modifierSum += calculateModifier(array[i])
+				}
+				if (modifierSum > 0 && Math.max(...array) > 13){
+					break;
+				}
+			}
+		}
+		else if (abilityStar === 5){
+			while (true){
+				var array = []
+				var modifierSum = 0;
+				for (var i = 0; i < 6; i++){
+					array.push(roll6d6b3a1())
+					modifierSum += calculateModifier(array[i])
+				}
+				if (modifierSum > 0 && Math.max(...array) > 13){
+					break;
+				}
+			}
+		}
+		else (abilityStar === 6){
+			while (true){
+				var array = []
+				var modifierSum = 0;
+				for (var i = 0; i < 6; i++){
+					array.push(roll6d6b3a2())
+					modifierSum += calculateModifier(array[i])
+				}
+				if (modifierSum > 0 && Math.max(...array) > 13){
+					break;
+				}
 			}
 		}
 		var characterInfo = {};
