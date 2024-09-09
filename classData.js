@@ -1,5 +1,563 @@
 	const classData = {
-		"Barbarian": {
+		"Barbarian (Jaguar)": {
+			hitDie: 12,
+			skillPoints: 4,
+			trainingAge: "Easy",
+			fullCaster: false,
+			halfCaster: false,
+			isNPCClass: false,
+			classSkills: ["Climb", "Craft", "Handle Animal", "Intimidate", "Jump", "Listen", "Ride", "Survival", "Swim"],
+			weaponProficiency: {
+				allSimple: true,
+				allMartial: true
+			},
+			armorProficiency: {
+				lightArmor: true,
+				mediumArmor: true,
+				heavyArmor: false,
+				shields: true,
+				towerShields: false
+			},
+			baseAttackBonus: "Good",
+			fortitudeSave: "Good",
+			reflexSave: "Poor",
+			willSave: "Poor",
+			hasAlignmentRestrictions: true,
+			attributeWeights: {
+				strength: 16,
+				dexterity: 6,
+				constitution: 16,
+				intelligence: 2,
+				wisdom: 3,
+				charisma:2
+			},
+			allowedAlignments: ["Neutral Good", "Chaotic Good", "Neutral", "Chaotic Neutral", "Neutral Evil", "Chaotic Evil"],
+			assignClassFeatures: [
+				null,
+				function(characterInfo){
+					characterInfo.features.push("Fast Movement")
+					characterInfo.features.push("Rage 1/day")
+					if (Math.floor(Math.random() * 100) < document.getElementById("LiterateBarbarians")){
+						characterInfo.skillPoints -= 2
+					}
+					else {
+						characterInfo.features.push("Illiteracy")
+					}
+				}
+			],
+			generateMoney:function(){
+				return (Math.floor(Math.random() * 4) + Math.floor(Math.random() * 4) + Math.floor(Math.random() * 4) +Math.floor(Math.random() * 4) + 4) * 1000
+			},
+			determineRacialWeight: function(race){
+				let weight = 5
+				weight += raceData[race].attributeMods.Strength
+				weight += raceData[race].attributeMods.Constitution
+				if (raceData[race].favoredClass === "Barbarian"){
+					weight += 5
+				}
+				else if (raceData[race].favoredClass === "Any"){
+					weight += 2
+				}
+				return Math.max(weight, 1)
+			}
+		},
+		"Barbarian (Ape)": {
+			hitDie: 12,
+			skillPoints: 4,
+			trainingAge: "Easy",
+			fullCaster: false,
+			halfCaster: false,
+			isNPCClass: false,
+			classSkills: ["Climb", "Craft", "Handle Animal", "Intimidate", "Jump", "Listen", "Ride", "Survival", "Swim"],
+			weaponProficiency: {
+				allSimple: true,
+				allMartial: true
+			},
+			armorProficiency: {
+				lightArmor: true,
+				mediumArmor: true,
+				heavyArmor: false,
+				shields: true,
+				towerShields: false
+			},
+			baseAttackBonus: "Good",
+			fortitudeSave: "Good",
+			reflexSave: "Poor",
+			willSave: "Poor",
+			hasAlignmentRestrictions: true,
+			attributeWeights: {
+				strength: 16,
+				dexterity: 6,
+				constitution: 16,
+				intelligence: 2,
+				wisdom: 3,
+				charisma:2
+			},
+			allowedAlignments: ["Neutral Good", "Chaotic Good", "Neutral", "Chaotic Neutral", "Neutral Evil", "Chaotic Evil"],
+			assignClassFeatures: [
+				null,
+				function(characterInfo){
+					characterInfo.features.push("Climb Speed")
+					characterInfo.features.push("Rage 1/day")
+					if (Math.floor(Math.random() * 100) < document.getElementById("LiterateBarbarians")){
+						characterInfo.skillPoints -= 2
+					}
+					else {
+						characterInfo.features.push("Illiteracy")
+					}
+				}
+			],
+			generateMoney:function(){
+				return (Math.floor(Math.random() * 4) + Math.floor(Math.random() * 4) + Math.floor(Math.random() * 4) +Math.floor(Math.random() * 4) + 4) * 1000
+			},
+			determineRacialWeight: function(race){
+				let weight = 5
+				weight += raceData[race].attributeMods.Strength
+				weight += raceData[race].attributeMods.Constitution
+				if (raceData[race].favoredClass === "Barbarian"){
+					weight += 5
+				}
+				else if (raceData[race].favoredClass === "Any"){
+					weight += 2
+				}
+				return Math.max(weight, 1)
+			}
+		},
+		"Barbarian (Bear)": {
+			hitDie: 12,
+			skillPoints: 4,
+			trainingAge: "Easy",
+			fullCaster: false,
+			halfCaster: false,
+			isNPCClass: false,
+			classSkills: ["Climb", "Craft", "Handle Animal", "Intimidate", "Jump", "Listen", "Ride", "Survival", "Swim"],
+			weaponProficiency: {
+				allSimple: true,
+				allMartial: true
+			},
+			armorProficiency: {
+				lightArmor: true,
+				mediumArmor: true,
+				heavyArmor: false,
+				shields: true,
+				towerShields: false
+			},
+			baseAttackBonus: "Good",
+			fortitudeSave: "Good",
+			reflexSave: "Poor",
+			willSave: "Poor",
+			hasAlignmentRestrictions: true,
+			attributeWeights: {
+				strength: 16,
+				dexterity: 6,
+				constitution: 16,
+				intelligence: 2,
+				wisdom: 3,
+				charisma:2
+			},
+			allowedAlignments: ["Neutral Good", "Chaotic Good", "Neutral", "Chaotic Neutral", "Neutral Evil", "Chaotic Evil"],
+			assignClassFeatures: [
+				null,
+				function(characterInfo){
+					characterInfo.features.push("Toughness")
+					characterInfo.features.push("Rage 1/day")
+					if (Math.floor(Math.random() * 100) < document.getElementById("LiterateBarbarians")){
+						characterInfo.skillPoints -= 2
+					}
+					else {
+						characterInfo.features.push("Illiteracy")
+					}
+				}
+			],
+			generateMoney:function(){
+				return (Math.floor(Math.random() * 4) + Math.floor(Math.random() * 4) + Math.floor(Math.random() * 4) +Math.floor(Math.random() * 4) + 4) * 1000
+			},
+			determineRacialWeight: function(race){
+				let weight = 5
+				weight += raceData[race].attributeMods.Strength
+				weight += raceData[race].attributeMods.Constitution
+				if (raceData[race].favoredClass === "Barbarian"){
+					weight += 5
+				}
+				else if (raceData[race].favoredClass === "Any"){
+					weight += 2
+				}
+				return Math.max(weight, 1)
+			}
+		},
+		"Barbarian (Boar)": {
+			hitDie: 12,
+			skillPoints: 4,
+			trainingAge: "Easy",
+			fullCaster: false,
+			halfCaster: false,
+			isNPCClass: false,
+			classSkills: ["Climb", "Craft", "Handle Animal", "Intimidate", "Jump", "Listen", "Ride", "Survival", "Swim"],
+			weaponProficiency: {
+				allSimple: true,
+				allMartial: true
+			},
+			armorProficiency: {
+				lightArmor: true,
+				mediumArmor: true,
+				heavyArmor: false,
+				shields: true,
+				towerShields: false
+			},
+			baseAttackBonus: "Good",
+			fortitudeSave: "Good",
+			reflexSave: "Poor",
+			willSave: "Poor",
+			hasAlignmentRestrictions: true,
+			attributeWeights: {
+				strength: 16,
+				dexterity: 6,
+				constitution: 16,
+				intelligence: 2,
+				wisdom: 3,
+				charisma:2
+			},
+			allowedAlignments: ["Neutral Good", "Chaotic Good", "Neutral", "Chaotic Neutral", "Neutral Evil", "Chaotic Evil"],
+			assignClassFeatures: [
+				null,
+				function(characterInfo){
+					characterInfo.features.push("Diehard Rage")
+					characterInfo.features.push("Rage 1/day")
+					if (Math.floor(Math.random() * 100) < document.getElementById("LiterateBarbarians")){
+						characterInfo.skillPoints -= 2
+					}
+					else {
+						characterInfo.features.push("Illiteracy")
+					}
+				}
+			],
+			generateMoney:function(){
+				return (Math.floor(Math.random() * 4) + Math.floor(Math.random() * 4) + Math.floor(Math.random() * 4) +Math.floor(Math.random() * 4) + 4) * 1000
+			},
+			determineRacialWeight: function(race){
+				let weight = 5
+				weight += raceData[race].attributeMods.Strength
+				weight += raceData[race].attributeMods.Constitution
+				if (raceData[race].favoredClass === "Barbarian"){
+					weight += 5
+				}
+				else if (raceData[race].favoredClass === "Any"){
+					weight += 2
+				}
+				return Math.max(weight, 1)
+			}
+		},
+		"Barbarian (Dragon)": {
+			hitDie: 12,
+			skillPoints: 4,
+			trainingAge: "Easy",
+			fullCaster: false,
+			halfCaster: false,
+			isNPCClass: false,
+			classSkills: ["Climb", "Craft", "Handle Animal", "Intimidate", "Jump", "Listen", "Ride", "Survival", "Swim"],
+			weaponProficiency: {
+				allSimple: true,
+				allMartial: true
+			},
+			armorProficiency: {
+				lightArmor: true,
+				mediumArmor: true,
+				heavyArmor: false,
+				shields: true,
+				towerShields: false
+			},
+			baseAttackBonus: "Good",
+			fortitudeSave: "Good",
+			reflexSave: "Poor",
+			willSave: "Poor",
+			hasAlignmentRestrictions: true,
+			attributeWeights: {
+				strength: 16,
+				dexterity: 6,
+				constitution: 16,
+				intelligence: 2,
+				wisdom: 3,
+				charisma:2
+			},
+			allowedAlignments: ["Neutral Good", "Chaotic Good", "Neutral", "Chaotic Neutral", "Neutral Evil", "Chaotic Evil"],
+			assignClassFeatures: [
+				null,
+				function(characterInfo){
+					characterInfo.features.push("Blind-Fight")
+					characterInfo.features.push("Rage 1/day")
+					if (Math.floor(Math.random() * 100) < document.getElementById("LiterateBarbarians")){
+						characterInfo.skillPoints -= 2
+					}
+					else {
+						characterInfo.features.push("Illiteracy")
+					}
+				}
+			],
+			generateMoney:function(){
+				return (Math.floor(Math.random() * 4) + Math.floor(Math.random() * 4) + Math.floor(Math.random() * 4) +Math.floor(Math.random() * 4) + 4) * 1000
+			},
+			determineRacialWeight: function(race){
+				let weight = 5
+				weight += raceData[race].attributeMods.Strength
+				weight += raceData[race].attributeMods.Constitution
+				if (raceData[race].favoredClass === "Barbarian"){
+					weight += 5
+				}
+				else if (raceData[race].favoredClass === "Any"){
+					weight += 2
+				}
+				return Math.max(weight, 1)
+			}
+		},
+		"Barbarian (Eagle)": {
+			hitDie: 12,
+			skillPoints: 4,
+			trainingAge: "Easy",
+			fullCaster: false,
+			halfCaster: false,
+			isNPCClass: false,
+			classSkills: ["Climb", "Craft", "Handle Animal", "Intimidate", "Jump", "Listen", "Ride", "Survival", "Swim"],
+			weaponProficiency: {
+				allSimple: true,
+				allMartial: true
+			},
+			armorProficiency: {
+				lightArmor: true,
+				mediumArmor: true,
+				heavyArmor: false,
+				shields: true,
+				towerShields: false
+			},
+			baseAttackBonus: "Good",
+			fortitudeSave: "Good",
+			reflexSave: "Poor",
+			willSave: "Poor",
+			hasAlignmentRestrictions: true,
+			attributeWeights: {
+				strength: 16,
+				dexterity: 6,
+				constitution: 16,
+				intelligence: 2,
+				wisdom: 3,
+				charisma:2
+			},
+			allowedAlignments: ["Neutral Good", "Chaotic Good", "Neutral", "Chaotic Neutral", "Neutral Evil", "Chaotic Evil"],
+			assignClassFeatures: [
+				null,
+				function(characterInfo){
+					characterInfo.features.push("+2 on Spot")
+					characterInfo.features.push("Rage 1/day")
+					if (Math.floor(Math.random() * 100) < document.getElementById("LiterateBarbarians")){
+						characterInfo.skillPoints -= 2
+					}
+					else {
+						characterInfo.features.push("Illiteracy")
+					}
+				}
+			],
+			generateMoney:function(){
+				return (Math.floor(Math.random() * 4) + Math.floor(Math.random() * 4) + Math.floor(Math.random() * 4) +Math.floor(Math.random() * 4) + 4) * 1000
+			},
+			determineRacialWeight: function(race){
+				let weight = 5
+				weight += raceData[race].attributeMods.Strength
+				weight += raceData[race].attributeMods.Constitution
+				if (raceData[race].favoredClass === "Barbarian"){
+					weight += 5
+				}
+				else if (raceData[race].favoredClass === "Any"){
+					weight += 2
+				}
+				return Math.max(weight, 1)
+			}
+		},
+		"Barbarian (Horse)": {
+			hitDie: 12,
+			skillPoints: 4,
+			trainingAge: "Easy",
+			fullCaster: false,
+			halfCaster: false,
+			isNPCClass: false,
+			classSkills: ["Climb", "Craft", "Handle Animal", "Intimidate", "Jump", "Listen", "Ride", "Survival", "Swim"],
+			weaponProficiency: {
+				allSimple: true,
+				allMartial: true
+			},
+			armorProficiency: {
+				lightArmor: true,
+				mediumArmor: true,
+				heavyArmor: false,
+				shields: true,
+				towerShields: false
+			},
+			baseAttackBonus: "Good",
+			fortitudeSave: "Good",
+			reflexSave: "Poor",
+			willSave: "Poor",
+			hasAlignmentRestrictions: true,
+			attributeWeights: {
+				strength: 16,
+				dexterity: 6,
+				constitution: 16,
+				intelligence: 2,
+				wisdom: 3,
+				charisma:2
+			},
+			allowedAlignments: ["Neutral Good", "Chaotic Good", "Neutral", "Chaotic Neutral", "Neutral Evil", "Chaotic Evil"],
+			assignClassFeatures: [
+				null,
+				function(characterInfo){
+					characterInfo.features.push("Fast Movement")
+					characterInfo.features.push("Rage 1/day")
+					if (Math.floor(Math.random() * 100) < document.getElementById("LiterateBarbarians")){
+						characterInfo.skillPoints -= 2
+					}
+					else {
+						characterInfo.features.push("Illiteracy")
+					}
+				}
+			],
+			generateMoney:function(){
+				return (Math.floor(Math.random() * 4) + Math.floor(Math.random() * 4) + Math.floor(Math.random() * 4) +Math.floor(Math.random() * 4) + 4) * 1000
+			},
+			determineRacialWeight: function(race){
+				let weight = 5
+				weight += raceData[race].attributeMods.Strength
+				weight += raceData[race].attributeMods.Constitution
+				if (raceData[race].favoredClass === "Barbarian"){
+					weight += 5
+				}
+				else if (raceData[race].favoredClass === "Any"){
+					weight += 2
+				}
+				return Math.max(weight, 1)
+			}
+		},
+		"Barbarian (Lion)": {
+			hitDie: 12,
+			skillPoints: 4,
+			trainingAge: "Easy",
+			fullCaster: false,
+			halfCaster: false,
+			isNPCClass: false,
+			classSkills: ["Climb", "Craft", "Handle Animal", "Intimidate", "Jump", "Listen", "Ride", "Survival", "Swim"],
+			weaponProficiency: {
+				allSimple: true,
+				allMartial: true
+			},
+			armorProficiency: {
+				lightArmor: true,
+				mediumArmor: true,
+				heavyArmor: false,
+				shields: true,
+				towerShields: false
+			},
+			baseAttackBonus: "Good",
+			fortitudeSave: "Good",
+			reflexSave: "Poor",
+			willSave: "Poor",
+			hasAlignmentRestrictions: true,
+			attributeWeights: {
+				strength: 16,
+				dexterity: 6,
+				constitution: 16,
+				intelligence: 2,
+				wisdom: 3,
+				charisma:2
+			},
+			allowedAlignments: ["Neutral Good", "Chaotic Good", "Neutral", "Chaotic Neutral", "Neutral Evil", "Chaotic Evil"],
+			assignClassFeatures: [
+				null,
+				function(characterInfo){
+					characterInfo.features.push("Run")
+					characterInfo.features.push("Rage 1/day")
+					if (Math.floor(Math.random() * 100) < document.getElementById("LiterateBarbarians")){
+						characterInfo.skillPoints -= 2
+					}
+					else {
+						characterInfo.features.push("Illiteracy")
+					}
+				}
+			],
+			generateMoney:function(){
+				return (Math.floor(Math.random() * 4) + Math.floor(Math.random() * 4) + Math.floor(Math.random() * 4) +Math.floor(Math.random() * 4) + 4) * 1000
+			},
+			determineRacialWeight: function(race){
+				let weight = 5
+				weight += raceData[race].attributeMods.Strength
+				weight += raceData[race].attributeMods.Constitution
+				if (raceData[race].favoredClass === "Barbarian"){
+					weight += 5
+				}
+				else if (raceData[race].favoredClass === "Any"){
+					weight += 2
+				}
+				return Math.max(weight, 1)
+			}
+		},
+		"Barbarian (Serpent)": {
+			hitDie: 12,
+			skillPoints: 4,
+			trainingAge: "Easy",
+			fullCaster: false,
+			halfCaster: false,
+			isNPCClass: false,
+			classSkills: ["Climb", "Craft", "Handle Animal", "Intimidate", "Jump", "Listen", "Ride", "Survival", "Swim"],
+			weaponProficiency: {
+				allSimple: true,
+				allMartial: true
+			},
+			armorProficiency: {
+				lightArmor: true,
+				mediumArmor: true,
+				heavyArmor: false,
+				shields: true,
+				towerShields: false
+			},
+			baseAttackBonus: "Good",
+			fortitudeSave: "Good",
+			reflexSave: "Poor",
+			willSave: "Poor",
+			hasAlignmentRestrictions: true,
+			attributeWeights: {
+				strength: 16,
+				dexterity: 6,
+				constitution: 16,
+				intelligence: 2,
+				wisdom: 3,
+				charisma:2
+			},
+			allowedAlignments: ["Neutral Good", "Chaotic Good", "Neutral", "Chaotic Neutral", "Neutral Evil", "Chaotic Evil"],
+			assignClassFeatures: [
+				null,
+				function(characterInfo){
+					characterInfo.features.push("Fort +2vs Poison")
+					characterInfo.features.push("Rage 1/day")
+					if (Math.floor(Math.random() * 100) < document.getElementById("LiterateBarbarians")){
+						characterInfo.skillPoints -= 2
+					}
+					else {
+						characterInfo.features.push("Illiteracy")
+					}
+				}
+			],
+			generateMoney:function(){
+				return (Math.floor(Math.random() * 4) + Math.floor(Math.random() * 4) + Math.floor(Math.random() * 4) +Math.floor(Math.random() * 4) + 4) * 1000
+			},
+			determineRacialWeight: function(race){
+				let weight = 5
+				weight += raceData[race].attributeMods.Strength
+				weight += raceData[race].attributeMods.Constitution
+				if (raceData[race].favoredClass === "Barbarian"){
+					weight += 5
+				}
+				else if (raceData[race].favoredClass === "Any"){
+					weight += 2
+				}
+				return Math.max(weight, 1)
+			}
+		},
+		"Barbarian (Wolf)": {
 			hitDie: 12,
 			skillPoints: 4,
 			trainingAge: "Easy",
